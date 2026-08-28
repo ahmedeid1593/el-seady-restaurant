@@ -1249,3 +1249,360 @@ button:focus-visible{
     }
 
 }
+/* =========================================
+   BRANCHES SECTION
+========================================= */
+
+.branches-section{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.branches-title{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 4px 0 2px;
+
+}
+
+
+.branches-title h2{
+
+    margin: 0;
+
+    color: var(--gold-light);
+
+    font-family: var(--font-display);
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+}
+
+
+.branches-title span{
+
+    width: 40px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold)
+    );
+
+}
+
+
+.branches-title span:last-child{
+
+    background: linear-gradient(
+        90deg,
+        var(--gold),
+        transparent
+    );
+
+}
+
+
+/* =========================================
+   BRANCH CARD
+========================================= */
+
+.branch-card{
+
+    padding: 14px;
+
+    border-radius: 20px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(55, 12, 9, 0.94),
+            rgba(27, 6, 5, 0.95)
+        );
+
+    border: 1px solid rgba(219, 164, 32, 0.32);
+
+    box-shadow:
+
+        0 10px 22px rgba(0, 0, 0, 0.25),
+
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+}
+
+
+.branch-header{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.branch-icon{
+
+    width: 46px;
+
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: var(--gold-pale);
+
+    font-size: 18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--maroon-600),
+            var(--maroon-900)
+        );
+
+    border: 1px solid rgba(219, 164, 32, 0.30);
+
+}
+
+
+.branch-header h3{
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+
+.branch-header p{
+
+    margin: 2px 0 0;
+
+    color: rgba(255,255,255,0.60);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   LOCATION BUTTON
+========================================= */
+
+.branch-location{
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: var(--gold-light);
+
+    background: rgba(219, 164, 32, 0.08);
+
+    border: 1px solid rgba(219, 164, 32, 0.20);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+
+}
+
+
+.branch-location:hover{
+
+    background: rgba(219, 164, 32, 0.16);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   DELIVERY NUMBERS
+========================================= */
+
+.delivery-numbers{
+
+    padding: 9px 4px 11px;
+
+    text-align: center;
+
+}
+
+
+.delivery-label{
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.delivery-label i{
+
+    margin-left: 4px;
+
+    color: var(--gold);
+
+}
+
+
+.numbers-row{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    direction: ltr;
+
+}
+
+
+.numbers-row a{
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.number-divider{
+
+    width: 1px;
+
+    height: 14px;
+
+    background: rgba(219, 164, 32, 0.35);
+
+}
+
+
+/* =========================================
+   WHATSAPP BUTTON
+========================================= */
+
+.branch-whatsapp{
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px;
+
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #25D366,
+            #128C7E
+        );
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.16);
+
+    transition:
+
+        transform 0.2s ease,
+
+        box-shadow 0.2s ease;
+
+}
+
+
+.branch-whatsapp:hover{
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 9px 20px rgba(37, 211, 102, 0.25);
+
+}
+
+
+.branch-whatsapp:active{
+
+    transform: scale(0.98);
+
+}
