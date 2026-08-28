@@ -1,0 +1,1251 @@
+/* =========================================================
+   مطعم الصعيدي — Design tokens
+   Colors sampled directly from the brand logo:
+   maroon #9C2E2E · gold #DBA420
+   ========================================================= */
+:root{
+  --maroon-950: #3E1212;
+  --maroon-900: #5A1C1C;
+  --maroon:     #9C2E2E;
+  --maroon-600: #B84639;
+  --gold:       #DBA420;
+  --gold-light: #F0C862;
+  --gold-pale:  #FCE9B8;
+  --cream:      #FBF1DD;
+  --paper:      #FFFCF5;
+  --ink:        #2A1710;
+  --ink-soft:   #7A5B47;
+
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --shadow-card: 0 10px 24px -12px rgba(58, 20, 12, 0.35);
+  --shadow-soft: 0 4px 14px -6px rgba(58, 20, 12, 0.25);
+
+  --font-display: "Changa", "Cairo", sans-serif;
+  --font-body: "Cairo", sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% -10%, var(--maroon-600) 0%, var(--maroon-900) 55%, var(--maroon-950) 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* subtle woven-fabric texture across the whole backdrop, echoes khayamiya canvas */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 10px);
+  pointer-events: none;
+}
+
+.stage{
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.card{
+  background: var(--cream);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+@media (min-width: 481px){
+  .stage{ min-height: auto; margin: 32px auto; }
+  .card{ min-height: auto; border-radius: var(--radius-lg); }
+}
+
+/* ===================== Header ===================== */
+.header{
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(219,164,32,0.18),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            155deg,
+            #B84639 0%,
+            var(--maroon) 48%,
+            #6E1E1C 100%
+        );
+
+    padding: 18px 24px 28px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+}
+.header::before{
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(240,200,98,0.12);
+
+    top: -150px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+}
+
+.header::after{
+
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.04);
+
+    top: -235px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+}
+.food-orbit{
+
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gold-light);
+
+    background: rgba(0,0,0,0.12);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(4px);
+
+    opacity: 0.55;
+
+    z-index: 1;
+
+    animation: orbitFloat 5s ease-in-out infinite;
+
+}
+
+.orbit-1{
+    top: 105px;
+    right: 28px;
+}
+
+.orbit-2{
+    top: 175px;
+    left: 30px;
+
+    animation-delay: -1.5s;
+}
+
+.orbit-3{
+    bottom: 30px;
+    right: 38px;
+
+    animation-delay: -3s;
+}
+
+@keyframes orbitFloat{
+
+    0%,100%{
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-12px) rotate(8deg);
+    }
+
+}
+.marquee{
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold-light),
+            var(--gold)
+        );
+
+    color: var(--maroon-950);
+
+    border-top: 1px solid rgba(255,255,255,0.18);
+    border-bottom: 1px solid rgba(90,28,28,0.18);
+
+    box-shadow:
+        0 4px 12px rgba(58,20,12,0.12);
+
+}
+
+.marquee-track{
+
+    display: flex;
+
+    width: max-content;
+
+    animation: marqueeMove 18s linear infinite;
+
+}
+
+.marquee-content{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    flex-shrink: 0;
+
+    padding: 10px 12px;
+
+    font-family: var(--font-display);
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+.marquee-content i{
+
+    color: var(--maroon);
+
+    margin-left: 7px;
+
+}
+
+.marquee-separator{
+
+    color: var(--maroon);
+
+    font-size: 14px;
+
+}
+
+@keyframes marqueeMove{
+
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(50%);
+    }
+
+}
+.ticket:nth-child(1){
+    animation-delay: 0.05s;
+}
+
+.ticket:nth-child(2){
+    animation-delay: 0.12s;
+}
+
+.ticket:nth-child(3){
+    animation-delay: 0.19s;
+}
+
+.ticket:nth-child(4){
+    animation-delay: 0.26s;
+}
+
+.ticket:nth-child(5){
+    animation-delay: 0.33s;
+}
+
+
+/* thin khayamiya lozenge strip along the very top edge */
+.header-pattern{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--gold) 0, var(--gold) 8px,
+    var(--gold-light) 8px, var(--gold-light) 16px
+  );
+  opacity: 0.9;
+}
+
+.logo-wrap{
+    width: 190px;
+    margin: 22px auto 6px;
+    position: relative;
+    z-index: 2;
+
+    animation: logoEntrance 0.9s cubic-bezier(.2,.9,.25,1) both;
+}
+
+.brand-logo{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 12px 14px rgba(0,0,0,0.28));
+
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoEntrance{
+
+    from{
+        opacity: 0;
+        transform: translateY(-20px) scale(0.9);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-5px);
+    }
+
+}
+.brand-name{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--gold-pale);
+  margin: 4px 0 8px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.brand-tagline{
+  margin: 0 0 18px;
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.92;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.brand-tagline .dot{
+  font-size: 5px;
+  color: var(--gold);
+}
+
+
+
+.pulse-dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #6FCF5A;
+  box-shadow: 0 0 0 rgba(111, 207, 90, 0.6);
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+.pulse-dot.closed{
+  background: #E0574B;
+  animation: pulse-closed 2s infinite;
+}
+
+@keyframes pulse{
+  0%   { box-shadow: 0 0 0 0 rgba(111, 207, 90, 0.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(111, 207, 90, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(111, 207, 90, 0); }
+}
+@keyframes pulse-closed{
+  0%   { box-shadow: 0 0 0 0 rgba(224, 87, 75, 0.5); }
+  70%  { box-shadow: 0 0 0 9px rgba(224, 87, 75, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 87, 75, 0); }
+}
+
+/* ===================== Scallop divider (signature) ===================== */
+.scallop-divider{
+  margin-top: -1px;
+  line-height: 0;
+}
+.scallop-divider svg{
+  width: 100%;
+  height: 34px;
+  display: block;
+}
+
+/* =========================================
+   FOOD BACKGROUND + NEW LINKS DESIGN
+========================================= */
+
+.links{
+
+    position: relative;
+
+    flex: 1;
+
+    padding: 28px 18px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    overflow: hidden;
+
+    background-color: #170807;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 5, 4, 0.62),
+            rgba(20, 5, 4, 0.72)
+        ),
+        url("food-bg.png");
+
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+
+/* طبقة Blur خفيفة فوق الخلفية */
+
+.links::before{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(120, 20, 10, 0.15),
+            rgba(0, 0, 0, 0.38)
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* كل المحتوى فوق الخلفية */
+
+.links > *{
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.links-heading{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 6px;
+
+}
+
+.links-heading span{
+
+    height: 1px;
+
+    width: 32px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+.links-heading span:last-child{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+
+}
+
+.links-heading p{
+
+    margin: 0;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   LINK CARD
+========================================= */
+
+.link-card{
+
+    position: relative;
+
+    min-height: 74px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 9px 12px;
+
+    text-decoration: none;
+
+    color: white;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(45, 9, 7, 0.94),
+            rgba(22, 5, 5, 0.90)
+        );
+
+    border:
+        1px solid rgba(219, 164, 32, 0.35);
+
+    box-shadow:
+
+        0 10px 24px rgba(0, 0, 0, 0.30),
+
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+
+    transition:
+
+        transform 0.25s ease,
+
+        border-color 0.25s ease,
+
+        box-shadow 0.25s ease;
+
+}
+
+
+/* لمعة جانبية */
+
+.link-card::before{
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 4px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--gold-light),
+            var(--maroon),
+            transparent
+        );
+
+    opacity: 0.8;
+
+}
+
+
+/* Hover */
+
+.link-card:hover{
+
+    transform: translateY(-3px);
+
+    border-color: var(--gold);
+
+    box-shadow:
+
+        0 14px 30px rgba(0, 0, 0, 0.45),
+
+        0 0 20px rgba(219, 164, 32, 0.12);
+
+}
+
+
+.link-card:active{
+
+    transform: scale(0.97);
+
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.link-icon{
+
+    width: 52px;
+
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a93030,
+            #621717
+        );
+
+    color: var(--gold-pale);
+
+    font-size: 21px;
+
+    border:
+        1px solid rgba(219, 164, 32, 0.35);
+
+    box-shadow:
+
+        0 5px 15px rgba(0, 0, 0, 0.30),
+
+        inset 0 1px 0 rgba(255,255,255,0.12);
+
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.link-content{
+
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+.link-title{
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+.link-sub{
+
+    color: rgba(255,255,255,0.62);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    direction: ltr;
+
+    text-align: right;
+
+}
+
+.rating{
+
+    direction: ltr;
+
+    color: var(--gold-light);
+
+}
+
+.rating span{
+
+    color: var(--gold);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.link-arrow{
+
+    width: 34px;
+
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: var(--gold-light);
+
+    background: rgba(219, 164, 32, 0.08);
+
+    border: 1px solid rgba(219, 164, 32, 0.20);
+
+    transition:
+
+        transform 0.25s ease,
+
+        background 0.25s ease;
+
+}
+
+
+.link-card:hover .link-arrow{
+
+    transform: translateX(-4px);
+
+    background: rgba(219, 164, 32, 0.18);
+
+}
+
+
+/* =========================================
+   MENU MAIN BUTTON
+========================================= */
+
+.menu-card{
+
+    min-height: 88px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #d9a324,
+            #a96f0b
+        );
+
+    border-color:
+        rgba(255,255,255,0.25);
+
+    box-shadow:
+
+        0 12px 30px rgba(0,0,0,0.38),
+
+        0 0 25px rgba(219,164,32,0.18);
+
+}
+
+
+.menu-card .link-icon{
+
+    width: 58px;
+
+    height: 58px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--maroon-600),
+            var(--maroon-900)
+        );
+
+    font-size: 23px;
+
+}
+
+
+.menu-card .link-title{
+
+    color: #35130c;
+
+    font-size: 18px;
+
+}
+
+
+.menu-card .link-sub{
+
+    color: rgba(53,19,12,0.75);
+
+}
+
+
+.menu-card .link-arrow{
+
+    background: rgba(70,20,10,0.13);
+
+    color: var(--maroon-900);
+
+    border-color: rgba(70,20,10,0.18);
+
+}
+
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
+.instagram-icon{
+
+    background:
+        radial-gradient(
+            circle at 30% 110%,
+            #ffdb73 0%,
+            #fd5949 35%,
+            #d6249f 60%,
+            #285AEB 100%
+        );
+
+    color: white;
+
+}
+
+
+.facebook-icon{
+
+    background: #1877F2;
+
+    color: white;
+
+}
+
+
+.tiktok-icon{
+
+    background: #1d100c;
+
+    color: white;
+
+}
+
+
+.google-icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            #a76f0b
+        );
+
+    color: var(--maroon-900);
+
+}
+
+
+/* =========================================
+   FOOTER - POWERED BY AHMED EID
+========================================= */
+
+.links{
+
+    position: relative;
+
+    flex: 1;
+
+    padding: 28px 18px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    overflow: hidden;
+
+    background-color: #170807;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 5, 4, 0.62),
+            rgba(20, 5, 4, 0.72)
+        ),
+        url("food-bg.png");
+
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 10px 15px 12px;
+
+    text-align: center;
+
+    background: rgba(20, 9, 8, 0.96);
+
+    border-top: 1px solid rgba(219, 164, 32, 0.15);
+
+}
+
+
+.footer-brand{
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+}
+
+
+.footer-name{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    color: rgba(255,255,255,0.60);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+}
+
+
+.footer-name i{
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+}
+
+
+.footer-name strong{
+
+    color: var(--gold-light);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+/* WhatsApp Number */
+
+.footer-whatsapp{
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    color: rgba(255,255,255,0.72);
+
+    text-decoration: none;
+
+    direction: ltr;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    transition: color 0.2s ease;
+
+}
+
+
+.footer-whatsapp i{
+
+    color: #25D366;
+
+    font-size: 12px;
+
+}
+
+
+.footer-whatsapp:hover{
+
+    color: var(--gold-light);
+
+}
+/* ===================== Motion & accessibility ===================== */
+a:focus-visible,
+button:focus-visible{
+  outline: 3px solid var(--maroon-600);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .ticket{
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .pulse-dot{ animation: none; }
+}
+/* ================= SPLASH SCREEN ================= */
+
+.splash{
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #b84639 0%,
+            #9c2e2e 45%,
+            #5a1c1c 100%
+        );
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+
+}
+
+
+.splash::before{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.025) 0 2px,
+            transparent 2px 10px
+        );
+
+    pointer-events: none;
+
+}
+
+
+.splash-content{
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation:
+        splashEntrance 0.7s ease forwards;
+
+}
+
+
+.splash-logo{
+
+    width: min(280px, 65vw);
+
+    height: auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 18px 25px rgba(0,0,0,0.35));
+
+}
+
+
+/* دخول اللوجو */
+
+@keyframes splashEntrance{
+
+    from{
+
+        opacity: 0;
+
+        transform:
+            scale(0.75)
+            translateY(25px);
+
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+/* خروج الـ Splash */
+
+.splash.hide{
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.splash.hide .splash-content{
+
+    animation:
+        splashExit 0.5s ease forwards;
+
+}
+
+
+@keyframes splashExit{
+
+    to{
+
+        opacity: 0;
+
+        transform:
+            scale(1.08);
+
+    }
+
+}
